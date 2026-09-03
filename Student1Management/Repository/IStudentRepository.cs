@@ -10,6 +10,7 @@ namespace Student1Management.Repository
         
         public Task<Student> Update(int id, Student student);
         public Task<bool> Delete(int id);
+        public Task<string> GetNameById(int id);
 
     }
 

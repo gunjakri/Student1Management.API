@@ -44,6 +44,19 @@ public class StudentController : ControllerBase
         return Ok(result);
 
     }
+
+    [HttpGet("GetName/{id}")]
+    public async Task<IActionResult> GetNameById(int id)
+    {
+        var name = await _studentRepository.GetNameById(id);
+        if (name == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(name);
+    }
+
     [HttpPut]
     public async Task<IActionResult> UpdateStudent(int id, Student student)
     {
