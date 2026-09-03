@@ -61,7 +61,16 @@ namespace Student1Management.Repository
             return true;
         }
 
-       
+        public async Task<string> GetNameById(int id)
+        {
+            var student = await _context.StudentDbSet.FindAsync(id);
+            if (student == null)
+            {
+                return null;
+            }
+
+            return student.Name;
+        }
     }
 
 }
